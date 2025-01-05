@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/82db49ee-2d11-459f-9d42-a0c367a36b11)# RobotLab
+# RobotLab
 各类国赛-包括但不限于电赛、智能车、数学建模、RM
 
 #### RM比赛
