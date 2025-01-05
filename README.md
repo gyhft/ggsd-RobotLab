@@ -33,7 +33,7 @@
 
 处理方法可以参考[智能汽车视觉组的图像数据集处理](https://blog.csdn.net/weixin_52126342/article/details/126170935?ops_request_misc=&request_id=&biz_id=102&utm_term=%E6%99%BA%E8%83%BD%E6%B1%BD%E8%BD%A6%E8%A7%86%E8%A7%89%E7%BB%84%E6%95%B0%E6%8D%AE%E9%9B%86%E5%A2%9E%E5%BC%BA&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-126170935.142^v101^pc_search_result_base9&spm=1018.2226.3001.4187)，主要方法为裁剪，旋转，模糊，加噪声，数据集大概做到1w张左右，主要是为了后面部署yolo v8模型或者v11模型，提高模型的泛化能力。
 
-2.相机和英伟达开发板(电控任务）
+2.相机和英伟达开发板（电控任务）
 
 使用的zed2i的深度相机，已经做好了相机的内外参的标定，可以写入矩阵数据就可以使用。相机通过usb连接到英伟达jetson ornx 8G芯片，拍到的图片传到yolo模型进行识别，识别成功后通过串口发送到下位机stm32,做自瞄跟随。
 
