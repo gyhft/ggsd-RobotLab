@@ -1,4 +1,4 @@
-# RobotLab
+![image](https://github.com/user-attachments/assets/82db49ee-2d11-459f-9d42-a0c367a36b11)# RobotLab
 各类国赛-包括但不限于电赛、智能车、数学建模、RM
 
 #### RM比赛
@@ -59,4 +59,7 @@ b.模型训练
 2.相机和英伟达开发板（电控任务）
 
 使用的zed2i的深度相机，已经做好了相机的内外参的标定，可以写入矩阵数据就可以使用。相机通过usb连接到英伟达jetson ornx 8G芯片，拍到的图片传到yolo模型进行识别，识别成功后通过串口发送到下位机stm32,做自瞄跟随。
+
+
+
 
