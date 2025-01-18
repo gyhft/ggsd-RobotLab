@@ -54,7 +54,8 @@ bool CLaserOdometry2DNode::setLaserPoseFromTf()
 }
 ```
 
-rf2o_laser_odometry/src/CLaserOdometry2D.cpp这里，修改如下
+rf2o_laser_odometry/src/CLaserOdometry2D.cpp这里，286行开始的，修改如下
+
 ```C++
 //First level -> Filter (not downsampling);
     if (i == 0)
