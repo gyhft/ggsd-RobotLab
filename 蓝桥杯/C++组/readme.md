@@ -44,7 +44,7 @@
 
 6.[扫雷](https://www.luogu.com.cn/problem/P8785)
 
-7.李白打酒加强版
+7.[李白打酒加强版](https://www.luogu.com.cn/problem/P8786)
 
-8.砍竹子
+8.[砍竹子](https://www.luogu.com.cn/problem/P8787)
 
