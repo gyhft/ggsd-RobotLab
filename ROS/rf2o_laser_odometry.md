@@ -1,8 +1,13 @@
 #### rf2o_laser_odometry安装
 1.Github
-https://github.com/MAPIRlab/rf2o_laser_odometry,这个链接，要注意在rf2o_laser_odometry的下方有两个branches,一个是ros2，一个是ros1的，因为我们大部分做激光雷达建图都是用的ros1,所以点击选择ros1，然后点击右上角的Code的
+https://github.com/MAPIRlab/rf2o_laser_odometry,
+
+这个链接，要注意在rf2o_laser_odometry的下方有两个branches,一个是ros2，一个是ros1的，因为我们大部分做激光雷达建图都是用的ros1,所以点击选择ros1，然后点击右上角的Code的
+
 Donload ZIP,下载完成，放到home的文件夹。
+
 2.代码修复
+
 在源码rf2o_laser_odometry/src/CLaserOdometry2DNode.cpp中第126行的上面添加下面这句tf_listener.waitForTransform("/base_footprint","/laser_link", ros::Time(), ros::Duration(5.0));：
 
 ```C++
