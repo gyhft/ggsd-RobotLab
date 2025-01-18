@@ -2,7 +2,7 @@
 
 
 ##### 十五届蓝桥杯C++B组真题
-1.好数
+1.[好数](https://www.luogu.com.cn/problem/P10424)
 
 2.R格式
 
