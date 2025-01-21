@@ -6,5 +6,8 @@
 
 [蓝桥杯](https://github.com/gyhft/ggsd-RobotLab/tree/main/%E8%93%9D%E6%A1%A5%E6%9D%AF)
 
+[电赛](https://github.com/gyhft/ggsd-RobotLab/tree/main/%E7%94%B5%E8%B5%9B)
+
+
 
 
