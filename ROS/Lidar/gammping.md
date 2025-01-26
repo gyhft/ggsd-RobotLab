@@ -77,5 +77,13 @@ roslaunch rplidar_ros rplidar_s2.launch
 rosrun rviz rviz -d /home/ayl/catkin/src/rplidar_ros/rviz/rplidar.rviz
 ```
 
+##### 4.启动gammping建图
+
+```C++
+roslaunch rplidar_ros rplidar_s2.launch
+
+roslaunch rplidar_ros test_gmapping.launch
+```
+
 
 
