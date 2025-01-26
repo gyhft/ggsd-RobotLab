@@ -1,6 +1,8 @@
 1. 桌面home那里创建一个catkin文件夹，然后里面创建src文件夹
 
-在这个github代码仓，https://github.com/Slamtec/rplidar_ros/tree/dev-ros1，下载之后，解压到创建的catkin的src文件夹中(改名，rplidar_ros-ros1改为rplidar_ros)
+在这个github代码仓，https://github.com/Slamtec/rplidar_ros/tree/dev-ros1，
+
+下载之后，解压到创建的catkin的src文件夹中(改名，rplidar_ros-ros1改为rplidar_ros)
 
 2. 返回到catkin文件夹，打开terminal，然后输入命令
 
