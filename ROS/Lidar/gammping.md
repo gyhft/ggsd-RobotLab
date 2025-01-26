@@ -82,7 +82,7 @@ rosrun rviz rviz -d /home/ayl/catkin/src/rplidar_ros/rviz/rplidar.rviz
 ```C++
 roslaunch rplidar_ros rplidar_s2.launch
 
-roslaunch rplidar_ros test_gmapping.launch
+roslaunch rplidar_ros test_rplidar.launch
 ```
 
 
