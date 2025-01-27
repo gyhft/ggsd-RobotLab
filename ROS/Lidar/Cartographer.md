@@ -15,3 +15,58 @@ System Requirements
 
 #### 2.源码安装gcc 9.3.0
 
+wget https://ftp.gnu.org/gnu/gcc/gcc-9.3.0/gcc-9.3.0.tar.gz
+
+
+解压源码包
+
+```C++
+tar -xvf gcc-9.3.0.tar.gz
+cd gcc-9.3.0
+
+
+```
+
+创建构建目录
+
+```C++
+mkdir build
+cd build
+
+
+```
+
+配置GCC编译选项
+
+```C++
+../configure --prefix=/usr/local/gcc-9.3.0 --enable-languages=c,c++ --disable-multilib
+
+```
+
+在build目录下打开terminal,编译GCC
+
+```C++
+make -j$(nproc)
+sudo make install
+
+
+```
+
+更新环境变量
+
+```C++
+sudo gedit ~/.bashrc
+
+export PATH=/usr/local/gcc-9.3.0/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/gcc-9.3.0/lib64:$LD_LIBRARY_PATH
+
+```
+
+验证GCC:
+
+```C++
+gcc --version
+
+
+```
+
