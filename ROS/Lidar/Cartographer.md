@@ -1,4 +1,4 @@
-##### 1.Cartographer官方文档
+#### 1.Cartographer官方文档
 
 在这个网址，https://google-cartographer.readthedocs.io/en/latest/
 
@@ -70,7 +70,7 @@ gcc --version
 
 ```
 
-##### 3.安装Cartographer的依赖项
+#### 3.安装Cartographer的依赖项
 
 ```C++
 
@@ -92,7 +92,7 @@ sudo apt install -y  libgflags-dev
 
 ```
 
-##### 4. 安装protobuf-cpp
+#### 4. 安装protobuf-cpp
 
 ```C++
 到这个链接找到16，就是3.4.1的版本
@@ -122,7 +122,7 @@ sudo make
 sudo make install
 
 ```
-##### 5. 安装absl-cpp
+#### 5. 安装absl-cpp
 
 
 ```C++
@@ -145,7 +145,7 @@ sudo make install
 
 ```
 
-##### 6.安装其他库
+#### 6.安装其他库
 
 尝试卸载当前版本并安装较旧版本的 markupsafe：
 
@@ -168,7 +168,7 @@ pip install --upgrade sphinx
 
 
 
-##### 7.安装Cartographer
+#### 7.安装Cartographer
 
 安装辅助工具库:
 
@@ -240,7 +240,7 @@ source ~/cartographer/devel_isolated/setup.bash
 
 ```
 
-##### Cartographer联合激光雷达调试
+#### 8.Cartographer联合激光雷达调试
 
 修改revo_lds.lua
 
