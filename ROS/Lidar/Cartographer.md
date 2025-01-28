@@ -223,6 +223,11 @@ rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y
 
 catkin_make_isolated --install --use-ninja
 
+source devel_isolated/setup.bash
+
+
+roslaunch cartographer_ros demo_revo_lds.launch
+
 ```
 
 
