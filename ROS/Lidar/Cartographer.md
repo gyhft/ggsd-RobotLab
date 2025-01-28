@@ -92,5 +92,25 @@ sudo apt install -y  libgflags-dev
 
 ```
 
+##### 4.安装Cartographer
+
+```C++
+# 创建一个工作空间
+mkdir -p ~/cartographer_ws/src
+cd ~/cartographer_ws/src
+
+# 克隆 Cartographer 源代码
+git clone https://github.com/cartographer-project/cartographer.git
+
+# 克隆 cartographer_ros 仓库
+git clone https://github.com/cartographer-project/cartographer_ros.git
+
+# 切换到 ROS 安装版本的标签（可选，避免版本不兼容）
+cd ~/cartographer_ws
+git checkout cartographer-ros-release-1.0.0
+
+
+```
+
 
 
