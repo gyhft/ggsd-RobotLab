@@ -92,6 +92,13 @@ sudo apt install -y  libgflags-dev
 
 ```
 
+##### 4. 安装protobuf
+
+```C++
+sudo wget https://github.com/protocolbuffers/protobuf/releases/download/v3.4.1/protobuf-all-3.4.1.tar.gz
+
+```
+
 ##### 4.安装Cartographer
 
 ```C++
@@ -109,7 +116,7 @@ git clone https://github.com/cartographer-project/cartographer_ros.git
 cd ~/cartographer_ws
 git checkout cartographer-ros-release-1.0.0
 
-
+catkin_make_isolated --install --use-ninja
 ```
 
 
