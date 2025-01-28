@@ -223,8 +223,131 @@ rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y
 
 catkin_make_isolated --install --use-ninja
 
-source devel_isolated/setup.bash
+```
 
+source一下：
+
+```C++
+
+sudo gedit ~/.bashrc
+
+```
+把这个语句加到文件里面，然后保存：
+
+```C++
+
+source ~/cartographer/devel_isolated/setup.bash
+
+```
+
+##### Cartographer联合激光雷达调试
+
+修改revo_lds.lua
+
+```C++
+sudo gedit  ~/cartographer/src/cartographer_ros/cartographer_ros/configuration_files/revo_lds.lua
+
+```
+修改为如下：
+
+```C++
+include "map_builder.lua"
+include "trajectory_builder.lua"
+
+options = {
+  map_builder = MAP_BUILDER,
+  trajectory_builder = TRAJECTORY_BUILDER,
+  map_frame = "map",  -- 地图坐标框架
+  tracking_frame = "laser",  -- 激光扫描的坐标框架
+  published_frame = "laser",  -- 发布的坐标框架
+  odom_frame = "odom",  -- 里程计坐标框架
+  provide_odom_frame = true,  -- 提供里程计坐标框架
+  publish_frame_projected_to_2d = false,  -- 不发布投影到2D的帧
+  use_pose_extrapolator = true,  -- 使用位姿外推器
+  use_odometry = false,  -- 启用里程计数据
+  use_nav_sat = false,  -- 禁用导航卫星
+  use_landmarks = false,  -- 禁用地标
+  num_laser_scans = 1,  -- 单个激光扫描
+  num_multi_echo_laser_scans = 0,  -- 禁用多回波激光扫描
+  num_subdivisions_per_laser_scan = 1,  -- 每个激光扫描的子划分数
+  num_point_clouds = 0,  -- 禁用点云数据
+  lookup_transform_timeout_sec = 0.2,  -- 查找坐标变换的超时
+  submap_publish_period_sec = 0.1,  -- 加快子地图发布周期
+  pose_publish_period_sec = 5e-3,  -- 位姿数据发布周期
+  trajectory_publish_period_sec = 30e-3,  -- 轨迹发布周期
+  rangefinder_sampling_ratio = 1.,  -- 激光雷达采样比率
+  odometry_sampling_ratio = 1.,  -- 里程计采样比率
+  fixed_frame_pose_sampling_ratio = 1.,  -- 固定帧位姿采样比率
+  imu_sampling_ratio = 1.,  -- IMU采样比率
+  landmarks_sampling_ratio = 1.,  -- 地标采样比率
+}
+
+MAP_BUILDER.use_trajectory_builder_2d = true  -- 使用2D轨迹构建器
+
+TRAJECTORY_BUILDER_2D.submaps.num_range_data = 35  -- 每个子地图包含的最大激光数据点数
+TRAJECTORY_BUILDER_2D.min_range = 0.3  -- 激光雷达的最小探测范围
+TRAJECTORY_BUILDER_2D.max_range = 8.0  -- 激光雷达的最大探测范围
+TRAJECTORY_BUILDER_2D.missing_data_ray_length = 1.0  -- 数据缺失的最大距离
+TRAJECTORY_BUILDER_2D.use_imu_data = false  -- 禁用IMU数据
+TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true  -- 启用在线相关扫描匹配
+TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = 0.1  -- 调整线性搜索窗口
+TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.translation_delta_cost_weight = 10.0  -- 平移匹配权重
+TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.rotation_delta_cost_weight = 1e-1  -- 旋转匹配权重
+
+POSE_GRAPH.optimization_problem.huber_scale = 1e2  -- 优化问题中的Huber缩放因子
+POSE_GRAPH.optimize_every_n_nodes = 35  -- 每35个节点进行一次图优化
+POSE_GRAPH.constraint_builder.min_score = 0.65  -- 最小约束得分
+
+return options
+
+```
+
+修改demo_revo_lds.launch
+
+```C++
+sudo gedit  ~/cartographer/src/cartographer_ros/cartographer_ros/launch/demo_revo_lds.launch
+
+```
+修改为如下：
+
+```C++
+<launch>
+  <param name="/use_sim_time" value="true" />
+ 
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename revo_lds.lua"
+      output="screen">
+    <remap from="scan" to="scan" />
+  </node>
+ 
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
+  
+</launch>
+
+```
+以上修改完成后，要重新编译,在Cartographer里面打开Terminal，输入如下命令：
+
+```C++
+
+catkin_make_isolated --install --use-ninja
+
+```
+
+最后运行命令：
+
+在rplidar_ws里面打开terminal:
+
+```C++
+
+roslaunch rplidar_ros rplidar_s2.launch
+
+```
+在cartographer里面打开terminal:
+
+```C++
 
 roslaunch cartographer_ros demo_revo_lds.launch
 
