@@ -92,14 +92,83 @@ sudo apt install -y  libgflags-dev
 
 ```
 
-##### 4. 安装protobuf
+##### 4. 安装protobuf-cpp
 
 ```C++
-sudo wget https://github.com/protocolbuffers/protobuf/releases/download/v3.4.1/protobuf-all-3.4.1.tar.gz
+到这个链接找到16，就是3.4.1的版本
+
+https://github.com/protocolbuffers/protobuf/releases
+
+点击下载protobuf-cpp-3.4.1.tar.gz
+
+解压之后，放到cartographer这个文件夹里面(改名为protobuf)
+
+然后打开终端：
+
+输入
+cd protobuf
+sudo ./autogen.sh
+
+在执行 ./configure 之前，确保传递 -fPIE 编译选项。你可以通过设置环境变量来确保这一点：
+
+export CXXFLAGS="-fPIE $CXXFLAGS"
+export LDFLAGS="-pie $LDFLAGS"
+
+
+sudo ./configure --prefix=$INSTALL_DIR
+
+sudo make
+
+sudo make install
+
+```
+##### 5. 安装absl-cpp
+
+
+```C++
+
+git clone https://github.com/abseil/abseil-cpp.git
+
+cd abseil-cpp
+
+mkdir build
+
+cd build
+
+cmake -DCMAKE_POSITION_INDEPENDENT_CODE=ON ..
+
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
+
+make -j$(nproc)
+
+sudo make install
 
 ```
 
-##### 4.安装Cartographer
+##### 6.安装其他库
+
+尝试卸载当前版本并安装较旧版本的 markupsafe：
+
+```C++
+
+pip uninstall markupsafe
+
+pip install markupsafe==2.0.1
+
+```
+
+日志中提到 Sphinx 1.8.5，但你可以尝试使用更高版本的 Sphinx 来看看是否能解决兼容性问题：
+
+```C++
+
+pip install --upgrade sphinx
+
+```
+
+
+
+
+##### 7.安装Cartographer
 
 ```C++
 # 创建一个工作空间
