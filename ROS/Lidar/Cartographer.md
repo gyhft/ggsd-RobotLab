@@ -70,3 +70,27 @@ gcc --version
 
 ```
 
+##### 3.安装Cartographer的依赖项
+
+```C++
+
+# 安装 Cartographer 所需的依赖项
+
+sudo apt install -y libboost-iostreams-dev
+sudo apt install -y  libgtest-dev
+sudo apt install -y  libprotobuf-dev 
+sudo apt install -y  protobuf-compiler 
+sudo apt install -y  libeigen3-dev 
+sudo apt install -y  libsuitesparse-dev 
+sudo apt install -y  libceres-dev 
+sudo apt install -y  liblua5.3-dev 
+sudo apt install -y  libgoogle-glog-dev 
+sudo apt install -y  libpcl-dev 
+sudo apt install -y  python3-pip 
+sudo apt install -y  libyaml-cpp-dev 
+sudo apt install -y  libgflags-dev
+
+```
+
+
+
