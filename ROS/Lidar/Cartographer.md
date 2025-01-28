@@ -170,22 +170,59 @@ pip install --upgrade sphinx
 
 ##### 7.安装Cartographer
 
+安装辅助工具库:
+
 ```C++
-# 创建一个工作空间
-mkdir -p ~/cartographer_ws/src
-cd ~/cartographer_ws/src
 
-# 克隆 Cartographer 源代码
-git clone https://github.com/cartographer-project/cartographer.git
+sudo apt-get install -y python3-wstool python3-rosdep ninja-build stow
 
-# 克隆 cartographer_ros 仓库
-git clone https://github.com/cartographer-project/cartographer_ros.git
+```
+开始
 
-# 切换到 ROS 安装版本的标签（可选，避免版本不兼容）
-cd ~/cartographer_ws
-git checkout cartographer-ros-release-1.0.0
+```C++
+mkdir cartographer_ws
+
+cd cartographer_ws
+
+wstool init src
+ 
+wstool merge -t src https://raw.githubusercontent.com/cartographer-project/cartographer_ros/master/cartographer_ros.rosinstall
+ 
+wstool update -t src
+
+```
+
+rosdep相关
+
+```C++
+sudo rosdep init
+
+rosdep update
+
+rosdep install --from-paths src --ignore-src --rosdistro=${noetic} -y
+
+```
+如果最后一步碰上报错：
+
+ERROR: the following packages/stacks could not have their rosdep keys resolved to system dependencies: cartographer: [libabsl-dev] defined as "not available" for OS version [focal]
+
+
+那也很好解决。把cartographer_ws/src/cartographer文件夹中的package.xml 文件中的第46行<depend>libabsl-dev</depend>删掉就完事儿了
+
+之后运行下面的代码：
+
+```C++
+
+rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y
+
+```
+
+最后编译：
+
+```C++
 
 catkin_make_isolated --install --use-ninja
+
 ```
 
 
