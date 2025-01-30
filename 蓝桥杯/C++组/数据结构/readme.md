@@ -127,7 +127,7 @@ sort排序可以用sort(a,a+n)的方式调用，也可以用sort(v.begin(),v.end
 
 vector就是一个不定长数组。例如，若a是一个 vector,可以用a.size()读取它的大小，a.resize()改变大小，a.push_back()向尾部添加元素，a.pop_back()删除最后一个元素。
 
-vector是一个模板类，所以需要用vector<int> a 或者  vector<double > b 这样的方式来声明一个vector。
+vector是一个模板类，所以需要用vector\<int\> a 或者  vector\<double \> b 这样的方式来声明一个vector。
 
 
 
@@ -138,7 +138,7 @@ vector是一个模板类，所以需要用vector<int> a 或者  vector<double > 
 
 #### 5.映射: Map
 
-map就是从键(key)到值(value)的映射。因为重载了[]运算符，map就像数组的“高级版”。例如，可以用一个map<string,int> month_name来表示“月份名字到月份编号”的映射，然后用month_name["July"] = 7 这样的方式来赋值。
+map就是从键(key)到值(value)的映射。因为重载了[]运算符，map就像数组的“高级版”。例如，可以用一个map\<string,int\> month_name来表示“月份名字到月份编号”的映射，然后用month_name\["July"\] = 7 这样的方式来赋值。
 
 set头文件中的set和map头文件中的map分别是集合与映射。二者都支持insert/find/count和remove操作，并且可以按照从小到大的顺序循环遍历其中元素。map还提供了“[]"运算符，使得map可以像数组一样使用。
 
@@ -146,9 +146,9 @@ set头文件中的set和map头文件中的map分别是集合与映射。二者�
 
 栈，就是符合”后进先出“（Last in First Out, LIFO) 规则的数据结构，有push和pop两种操作，其中push把元素压入栈顶，而pop从栈顶把元素弹出。（top()取栈顶元素但不删除）。
 
-STL的栈定义在头文件<stack>中，可以用stack<int> s方法声明一个栈。
+STL的栈定义在头文件<stack>中，可以用stack\<int\> s方法声明一个栈。
 
-STL队列定义在头文件<queue>中，可以用queue<int> s方式来声明一个队列。
+STL队列定义在头文件<queue>中，可以用queue\<int\> s方式来声明一个队列。
 
 push() 和pop(), front():取队首元素，但不删除。
 
