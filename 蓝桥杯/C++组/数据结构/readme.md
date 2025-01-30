@@ -170,7 +170,7 @@ struct cmp{
 
 ```
 
-对于一些常见的优先队列，如最小队列，可以写成priority_queue<int ,vector<int>, greater<int> > pq。
+对于一些常见的优先队列，如最小队列，可以写成priority_queue<int ,vector<int>, greater<int>  > pq。
 
 
 
