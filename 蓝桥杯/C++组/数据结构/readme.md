@@ -129,3 +129,48 @@ vector就是一个不定长数组。例如，若a是一个 vector,可以用a.siz
 
 vector是一个模板类，所以需要用vector<int> a 或者  vector<double > b 这样的方式来声明一个vector。
 
+
+
+#### 4.集合：Set
+
+集合与映射也是两个常用的容器。set就是数学上的集合————每个元素最多只出现一次，和sort一样，自定义类型也可以构造set,但同样必须定义”小于"运算符。
+
+
+#### 5.映射: Map
+
+map就是从键(key)到值(value)的映射。因为重载了[]运算符，map就像数组的“高级版”。例如，可以用一个map<string,int> month_name来表示“月份名字到月份编号”的映射，然后用month_name["July"] = 7 这样的方式来赋值。
+
+set头文件中的set和map头文件中的map分别是集合与映射。二者都支持insert/find/count和remove操作，并且可以按照从小到大的顺序循环遍历其中元素。map还提供了“[]"运算符，使得map可以像数组一样使用。
+
+#### 栈，队列与优先队列
+
+栈，就是符合”后进先出“（Last in First Out, LIFO) 规则的数据结构，有push和pop两种操作，其中push把元素压入栈顶，而pop从栈顶把元素弹出。（top()取栈顶元素但不删除）。
+
+STL的栈定义在头文件<stack>中，可以用stack<int> s方法声明一个栈。
+
+STL队列定义在头文件<queue>中，可以用queue<int> s方式来声明一个队列。
+
+push() 和pop(), front():取队首元素，但不删除。
+
+STL的优先队列也定义在头文件<queue>里，用priority_queue<int> pq来声明，由于出队元素并不是最先进队的元素，出队的方法由queue的front()变为了top()。
+
+自定义类型也可以组成优先队列，但必须为每一个元素定义一个优先级。这个优先级并不需要一个确定的数字，只需要能比较大小即可。
+
+可以定义一个结构体cmp,重载"()"运算符，使得其看上去像一个函数。然后用priority_queue<int, vector<int>, cmp> pq的方式来定义。下面是这个cmp的定义：
+
+```C++
+
+struct cmp{
+    bool operator() (const int a , const int b) const {
+        
+        return a % 10 > b % 10;
+        
+    }
+};
+
+```
+
+对于一些常见的优先队列，如最小队列，可以写成priority_queue<int ,vector<int>, greater<int> > pq。
+
+
+
