@@ -120,3 +120,12 @@ int main()
 }
 ```
 
+sort排序可以用sort(a,a+n)的方式调用，也可以用sort(v.begin(),v.end())的方式调用。lower_bound的作用是查找大于或者等于x的第一个位置。
+
+
+#### 3.vector
+
+vector就是一个不定长数组。例如，若a是一个 vector,可以用a.size()读取它的大小，a.resize()改变大小，a.push_back()向尾部添加元素，a.pop_back()删除最后一个元素。
+
+vector是一个模板类，所以需要用vector<int> a 或者  vector<double > b 这样的方式来声明一个vector。
+
