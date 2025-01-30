@@ -152,11 +152,11 @@ STL队列定义在头文件<queue>中，可以用queue<int> s方式来声明一�
 
 push() 和pop(), front():取队首元素，但不删除。
 
-STL的优先队列也定义在头文件<queue>里，用priority_queue<int> pq来声明，由于出队元素并不是最先进队的元素，出队的方法由queue的front()变为了top()。
+STL的优先队列也定义在头文件<queue>里，用priority_queue\<int\> pq来声明，由于出队元素并不是最先进队的元素，出队的方法由queue的front()变为了top()。
 
 自定义类型也可以组成优先队列，但必须为每一个元素定义一个优先级。这个优先级并不需要一个确定的数字，只需要能比较大小即可。
 
-可以定义一个结构体cmp,重载"()"运算符，使得其看上去像一个函数。然后用priority_queue<int, vector<int>, cmp> pq的方式来定义。下面是这个cmp的定义：
+可以定义一个结构体cmp,重载"()"运算符，使得其看上去像一个函数。然后用priority_queue\<int, vector\<int\>, cmp\> pq的方式来定义。下面是这个cmp的定义：
 
 ```C++
 
