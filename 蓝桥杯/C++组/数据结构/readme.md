@@ -1,4 +1,4 @@
-##### 1.结构体
+#### 1.结构体
 
 C++中的结构体除了可以拥有成员变量之外，还可以拥有成员函数。下面是一个例子：
 
@@ -50,5 +50,72 @@ Point(int x = 0, int y =0){this->x = x, this->y = y;}
 
 最后，定义这个结构体的流输出方式，然后就可以用cout<< p来输出一个Point结构体p了。
 
+#### 排序与检索
 
+例题：大理石在哪里？（Where is the Marble?)
+
+现有N个大理石，每个大理石上写了一个非负整数。首先把各数从小到大排序，然后回答Q个问题。每个问题问是否有一个大理石写着某个整数x,如果是，还要回答哪个大理石上写着x。排序后的大理石从左到右编号为1～N。
+
+样例输入：
+4 1 
+
+2 3 5 1
+
+5
+
+5 2
+
+1 3 3 3 1
+
+2 3
+
+样例输出：
+
+CASE# 1:
+
+5 found at 4
+
+CASE# 2:
+
+2 not found 
+
+3 found at 3
+
+
+
+```C++
+#include <iostream>
+
+#include<algorithm>
+
+using namespace std;
+
+const int maxn = 10000;
+
+int main()
+{
+    int n, q,x,a[maxn], kase = 0;
+    
+    while (scanf("%d%d",&n,&q) == 2 && n){
+        printf("CASE# %d:\n",++kase);
+        for(int i = 0; i < n; i++){
+            scanf("%d",&a[i]);
+        }
+        sort(a,a+n);
+        while(q--){
+            scanf("%d",&x);
+            int p = lower_bound(a,a+n,x) - a;
+            if(a[p] === x){
+                printf("%d found at %d \n", x , p+1);
+                
+            }else{
+                printf("%d not found\n",x);
+            }
+        }
+    }
+    
+
+    return 0;
+}
+```
 
