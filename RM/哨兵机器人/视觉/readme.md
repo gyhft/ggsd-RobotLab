@@ -1,4 +1,4 @@
-#### Ubuntu 20.04 安装 Ros2
+#### Ubuntu 20.04 安装 Ros2(Foxy版本）
 
 1. 设置软件源
 
