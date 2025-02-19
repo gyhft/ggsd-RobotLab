@@ -83,3 +83,13 @@ ros2 run demo_nodes_py listener
 ```
 
 如果看到 talker 节点不断发布消息，而 listener 节点能够接收到这些消息，说明 ROS 2 已经成功安装并正常工作。
+
+
+#### 相关资料
+
+ROSMASTER-X3资料：
+
+https://www.yahboom.com/study/ROSMASTER-X3 
+
+提取码：zsdf
+
